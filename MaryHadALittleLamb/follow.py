@@ -15,7 +15,7 @@ def servo_scan():
     for pos in range(0, 181, 10):
         rotate_servo(pos)
         distance = measure()
-        front_distance = math.acos(distance * pos) # we can use this for a more accurate reading of closeness
+        front_distance = math.cos(distance) * pos # we can use this for a more accurate reading of closeness
         if distance < min_distance:
             min_distance = distance
             min_point = pos
