@@ -9,7 +9,7 @@ def right_angle_triangle(opposite, adjacent):
     :return: None
     """
     hyp = math.sqrt(opposite ** 2 + adjacent ** 2)
-    angle = math.tan(opposite / adjacent)
+    angle = math.degrees(math.tan(opposite / adjacent))
     go_forward(opposite) # start at intersection between hyp and opposite sides
     rotate_right(90) # rotate at 90 for intersection between opp and adj
     go_forward(adjacent) # create base
@@ -42,7 +42,7 @@ def draw_isosceles(base, height):
     :return: None
     """
     hyp = math.sqrt(height * height + 0.25 * base * base)
-    angle = math.tan(height / (0.5 * base))
+    angle = math.degrees(math.tan(height / (0.5 * base)))
     top_angle = 180 - 2 * angle # a triangle is at most 180 degrees
     go_forward(base) # draw the base first
 
