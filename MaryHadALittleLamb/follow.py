@@ -1,5 +1,6 @@
 from UWIGoPiGo import *
 import time
+import math
 
 
 SLEEP_TIME = 0.5
@@ -11,9 +12,10 @@ def servo_scan():
     min_point = 90
     time.sleep(SLEEP_TIME)
 
-    for pos in range(0, 180, 10):
+    for pos in range(0, 181, 10):
         rotate_servo(pos)
         distance = measure()
+        front_distance = math.acos(distance * pos) # we can use this for a more accurate reading of closeness
         if distance < min_distance:
             min_distance = distance
             min_point = pos
